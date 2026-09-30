@@ -5,5 +5,6 @@ un repositorio es una carpeta donde esta alojada la pagina en la web
 -la funcion del commit que es para enviar los cambios realizado y es necesario poner un nombre que idenfique como hacerlo
 -trabajar la parte basica de git
 -funciones de las ramas de git
--coneccion de github y visual estudio
--<li>
+-coneccion de github y visual estudio=======
+*Editado desde github
+>>>>>>>
