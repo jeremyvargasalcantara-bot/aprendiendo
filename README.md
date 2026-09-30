@@ -6,3 +6,4 @@ un repositorio es una carpeta donde esta alojada la pagina en la web
 -trabajar la parte basica de git
 -funciones de las ramas de git
 -coneccion de github y visual estudio
+-<li>
