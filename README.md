@@ -1,4 +1,4 @@
-Aprendiendo y probando como trabajar con git hub
+#Aprendiendo y probando como trabajar con git hub
 Sesion 4
 un repositorio es una carpeta donde esta alojada la pagina en la web 
 -He aprendido sobre git hub
