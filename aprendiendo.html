@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Prueba de CSS Grid - 4 Predicciones</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      padding: 30px;
+      margin: 0;
+      background-color: white;
+      color: black;
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    /* Estructura común para cada prueba */
+    .caso-prueba {
+      background: white;
+      border-radius: 10px;
+      padding: 20px;
+      margin-bottom: 30px;   
+    }
+
+    .caso-titulo {
+      margin-top: 0;
+      color: black;
+      font-size: 1.2rem;
+    }
+
+    .descripcion-prediccion {
+      font-size: 0.95rem;
+      color: black;
+      margin-bottom: 15px;
+      background: white;
+      padding: 10px;
+      border-left: 4px solid blue;
+      border-radius: 4px;
+    }
+
+    /* CONTENEDOR PRINCIPAL FIX DE 600px DE ANCHO */
+    .contenedor-grid {
+      width: 600px; 
+      border: 2px dashed grey;
+      padding: 12px;
+      background-color: gray;
+      border-radius: 8px;
+      display: grid;
+      gap: 16px; /
+    }
+
+    /* Estilos para las cajas de colores */
+    .caja {
+      padding: 15px;
+      border-radius: 6px;
+      color: white;
+      font-weight: bold;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      font-size: 0.9rem;
+      min-height: 70px;
+    }
+
+    /* Colores llamativos para diferenciar cada tarjeta */
+    .caja:nth-child(1) { background-color: red; } /* Rojo */
+    .caja:nth-child(2) { background-color: green; } /* Verde */
+    .caja:nth-child(3) { background-color: blue; } /* Azul */
+    .caja:nth-child(4) { background-color: orange; } /* Amarillo/Naranja */
+
+    /* -------------------------------------------------------------
+       CONFIGURACIÓN DE LAS 4 PREDICCIONES
+    ------------------------------------------------------------- */
+
+    /* PREDICCIÓN 1: repeat(auto-fit, minmax(200px, 1fr)) con 3 elementos */
+    .grid-prediccion-1 {
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    }
+
+    /* PREDICCIÓN 2: repeat(auto-fill, minmax(200px, 1fr)) con 3 elementos */
+    .grid-prediccion-2 {
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    }
+
+    /* PREDICCIÓN 3: repeat(3, 1fr) - División equitativa fija */
+    .grid-prediccion-3 {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    /* PREDICCIÓN 4: minmax con 4 elementos en 600px (Fuerza salto de línea) */
+    .grid-prediccion-4 {
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    }
+  </style>
+</head>
+<body>
+
+  <h1>🧪 Laboratorio de Pruebas: CSS Grid (Contenedores de 600px)</h1>
+
+  <!-- CASO 1 -->
+  <div class="caso-prueba">
+    <h2 class="caso-titulo">Predicción 1: `repeat(auto-fit, minmax(200px, 1fr))` — 3 Cajas</h2>
+    <div class="descripcion-prediccion">
+      <strong>Cálculo esperado:</strong> Ancho total = 600px - padding (24px) - gaps (32px) = 544px disponibles.<br>
+      Como 544px / 3 = <strong>181.33px</strong> (menor que el mínimo de 200px), 3 cajas NO caben en una fila. 
+      Se forman 2 filas: la primera con 2 cajas extendidas a ~264px y la segunda con 1 caja estirada a ~544px.
+    </div>
+    
+    <div class="contenedor-grid grid-prediccion-1">
+      <div class="caja">Subtotal</div>
+      <div class="caja">ITBIS</div>
+      <div class="caja">Total</div>
+    </div>
+  </div>
+
+  <!-- CASO 2 -->
+  <div class="caso-prueba">
+    <h2 class="caso-titulo">Predicción 2: `repeat(auto-fill, minmax(200px, 1fr))` — 2 Cajas</h2>
+    <div class="descripcion-prediccion">
+      <strong>Cálculo esperado:</strong> Con 2 cajas, caben holgadamente en 600px.
+      `auto-fill` reserva espacio para columnas vacías implícitas si las hubiera, pero al ser sólo 2 cajas, cada una se expande a ~264px.
+    </div>
+    
+    <div class="contenedor-grid grid-prediccion-2">
+      <div class="caja">Subtotal</div>
+      <div class="caja">ITBIS</div>
+    </div>
+  </div>
+
+  <!-- CASO 3 -->
+  <div class="caso-prueba">
+    <h2 class="caso-titulo">Predicción 3: `repeat(3, 1fr)` — 3 Cajas Forzadas</h2>
+    <div class="descripcion-prediccion">
+      <strong>Cálculo esperado:</strong> Distribuye el espacio sobrante equitativamente en 3 columnas sin importar el mínimo de 200px.<br>
+      Ancho de cada caja = (600px - 24px padding - 32px gaps) / 3 = <strong>~181.33px</strong>.
+    </div>
+    
+    <div class="contenedor-grid grid-prediccion-3">
+      <div class="caja">Subtotal</div>
+      <div class="caja">ITBIS</div>
+      <div class="caja">Total</div>
+    </div>
+  </div>
+
+  <!-- CASO 4 -->
+  <div class="caso-prueba">
+    <h2 class="caso-titulo">Predicción 4: `auto-fit` con 4 Cajas en 600px</h2>
+    <div class="descripcion-prediccion">
+      <strong>Cálculo esperado:</strong> 4 cajas con `minmax(200px, 1fr)`. Como no caben más de 2 por fila (requerirían al menos 200px cada una), se organizan automáticamente en una cuadrícula de 2x2, midiendo cada caja ~264px de ancho.
+    </div>
+    
+    <div class="contenedor-grid grid-prediccion-4">
+      <div class="caja">Subtotal</div>
+      <div class="caja">ITBIS</div>
+      <div class="caja">Descuento</div>
+      <div class="caja">Total</div>
+    </div>
+  </div>
+
+</body>
+</html>
