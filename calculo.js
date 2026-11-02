@@ -8,3 +8,13 @@ const total =(subtotal + itbis);
 console.log(subtotal);
 console.log(itbis);
 console.log(total);
+function calcularItbis(montoGravado){
+    return(montoGravado);
+}
+function calcularItbis(montoGravado) {
+  return montoGravado * 0.18;
+}
+let result = calcularItbis();
+console.log(calcularItbis(12000));
+console.log(calcularItbis(5000));
+console.log(calcularItbis(0));
