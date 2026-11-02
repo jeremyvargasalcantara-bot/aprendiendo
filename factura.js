@@ -6,3 +6,6 @@ console.log(5 + 3);
 console.log("5" + 3);
 console.log(typeof subtotal);
 console.log(typeof nombrePaciente);
+subtotal = 20000;
+console.log(subtotal);
+nombrePaciente = "Ana";
