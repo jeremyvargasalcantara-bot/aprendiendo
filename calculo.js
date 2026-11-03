@@ -14,4 +14,17 @@ function calcularItbis(montoGravado) {
 console.log(calcularItbis(12000));
 console.log(calcularItbis(5000));
 console.log(calcularItbis(0));
+function itbisDeProcedimiento(precio, esGravado) {
+  if (esGravado) {
+    return precio * 0.18;
+  } else {
+    return 0;
+  }
+}
+console.log(itbisDeProcedimiento(12000, true));
+console.log(itbisDeProcedimiento(1500, false));
+console.log(itbisDeProcedimiento(2500, false));
+
+
+
 
