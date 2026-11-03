@@ -1,10 +1,10 @@
-const profilaxis = 1500; 
+const profilaxis = 1500;
 const resina = 2500;
-const cantidadResina = 2 ;
+const cantidadResina = 2;
 const blanqueamiento = 12000;
-const subtotal=(profilaxis+ (resina*cantidadResina) + blanqueamiento);
-const itbis =(blanqueamiento * 0.18 );
-const total =(subtotal + itbis);
+const subtotal = profilaxis + resina * cantidadResina + blanqueamiento;
+const itbis = blanqueamiento * 0.18;
+const total = subtotal + itbis;
 console.log(subtotal);
 console.log(itbis);
 console.log(total);
@@ -26,14 +26,41 @@ console.log(itbisDeProcedimiento(1500, false));
 console.log(itbisDeProcedimiento(2500, false));
 
 const blanqueamientoDental = {
-nombre: "Blanqueamiento dental",
-precio: 12000,
-cantidad: 1,
-gravado: true
+  nombre: "Blanqueamiento dental",
+  precio: 12000,
+  cantidad: 1,
+  gravado: true,
 };
 console.log(blanqueamientoDental.nombre);
 console.log(blanqueamientoDental.precio * blanqueamientoDental.cantidad);
-console.log(itbisDeProcedimiento(blanqueamientoDental.precio, blanqueamientoDental.gravado));
+console.log(
+  itbisDeProcedimiento(
+    blanqueamientoDental.precio,
+    blanqueamientoDental.gravado,
+  ),
+);
 
-
-
+const procedimientos = [
+  {
+    nombre: "Profilaxis",
+    precio: 1500,
+    cantidad: 1,
+    gravado: false,
+  },
+  {
+    nombre: "Resina",
+    precio: 2500,
+    cantidad: 1,
+    gravado: true,
+  },
+  {
+    nombre: "Blanqueamiento",
+    precio: 12000,
+    cantidad: 1,
+    gravado: true,
+  },
+];
+console.log(procedimientos.length);
+console.log(procedimientos[1].nombre);
+console.log(procedimientos[0].precio);
+console.log(procedimientos[3]);
