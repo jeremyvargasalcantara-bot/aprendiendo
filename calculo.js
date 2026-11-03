@@ -25,6 +25,15 @@ console.log(itbisDeProcedimiento(12000, true));
 console.log(itbisDeProcedimiento(1500, false));
 console.log(itbisDeProcedimiento(2500, false));
 
+const blanqueamientoDental = {
+nombre: "Blanqueamiento dental",
+precio: 12000,
+cantidad: 1,
+gravado: true
+};
+console.log(blanqueamientoDental.nombre);
+console.log(blanqueamientoDental.precio * blanqueamientoDental.cantidad);
+console.log(itbisDeProcedimiento(blanqueamientoDental.precio, blanqueamientoDental.gravado));
 
 
 
