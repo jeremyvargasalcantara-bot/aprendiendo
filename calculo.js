@@ -50,8 +50,8 @@ const procedimientos = [
   {
     nombre: "Resina",
     precio: 2500,
-    cantidad: 1,
-    gravado: true,
+    cantidad: 2,
+    gravado: false,
   },
   {
     nombre: "Blanqueamiento",
