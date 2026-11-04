@@ -65,30 +65,21 @@ console.log(procedimientos[1].nombre);
 console.log(procedimientos[0].precio);
 console.log(procedimientos[3]);
 console.log(procedimientos[procedimientos.length - 1].nombre);
-
-let subtotalLista = 0;
-for (const p of procedimientos) {
-  subtotalLista += p.precio * p.cantidad;
+function actualizarPresupuesto() {
+  let subtotalLista = 0;
+  for (const p of procedimientos) {
+    subtotalLista += p.precio * p.cantidad;
+  }
+  let itbisLista = 0;
+  for (const p of procedimientos) {
+    itbisLista += itbisDeProcedimiento(p.precio * p.cantidad, p.gravado);
+  }
+  const totalLista = subtotalLista + itbisLista;
+  function formatearDinero(monto) {
+    return "RD$ " + monto.toLocaleString("es-DO", { minimumFractionDigits: 2 });
+  }
+  document.getElementById("subtotal").textContent = formatearDinero(subtotalLista);
+  document.getElementById("itbis").textContent = formatearDinero(itbisLista);
+  document.getElementById("total").textContent = formatearDinero(totalLista);
 }
-console.log(subtotalLista);
-
-let itbisLista = 0;
-for (const p of procedimientos) {  
-  itbisLista += itbisDeProcedimiento(p.precio * p.cantidad, p.gravado);
-}
-const totalLista = subtotalLista + itbisLista;
-console.log(subtotalLista);
-console.log(itbisLista);
-console.log(totalLista);
-
-document.getElementById("subtotal").textContent = formatearDinero(subtotalLista);
-document.getElementById("itbis").textContent = formatearDinero(itbisLista);
-document.getElementById("total").textContent = formatearDinero(totalLista);
-
-function formatearDinero (monto){
-return "RD$ " + monto.toLocaleString("es-DO", { minimumFractionDigits: 2 });
-}
-console.log(formatearDinero(20660));
-console.log(formatearDinero(2160));
-console.log(formatearDinero(0));
-
+console.log(actualizarPresupuesto());
