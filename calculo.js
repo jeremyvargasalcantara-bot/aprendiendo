@@ -80,3 +80,8 @@ const totalLista = subtotalLista + itbisLista;
 console.log(subtotalLista);
 console.log(itbisLista);
 console.log(totalLista);
+
+document.getElementById("subtotal").textContent = totalLista;
+document.getElementById("itbis").textContent = totalLista;
+document.getElementById("total").textContent = totalLista;
+
