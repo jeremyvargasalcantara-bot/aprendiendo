@@ -81,7 +81,7 @@ console.log(subtotalLista);
 console.log(itbisLista);
 console.log(totalLista);
 
-document.getElementById("subtotal").textContent = totalLista;
-document.getElementById("itbis").textContent = totalLista;
+document.getElementById("subtotal").textContent = subtotalLista;
+document.getElementById("itbis").textContent = itbisLista;
 document.getElementById("total").textContent = totalLista;
 
