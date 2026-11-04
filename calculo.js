@@ -81,7 +81,13 @@ console.log(subtotalLista);
 console.log(itbisLista);
 console.log(totalLista);
 
-document.getElementById("subtotal").textContent = subtotalLista;
-document.getElementById("itbis").textContent = itbisLista;
-document.getElementById("total").textContent = totalLista;
+document.getElementById("subtotal").textContent = formatearDinero(subtotal);
+document.getElementById("itbis").textContent = formatearDinero(itbisLista);
+document.getElementById("total").textContent = formatearDinero(totalLista);
 
+function formatearDinero (monto){
+return "RD$ " + monto.toLocaleString("es-DO", { minimumFractionDigits: 2 });
+}
+console.log(formatearDinero(20660));
+console.log(formatearDinero(2160));
+console.log(formatearDinero(0));
