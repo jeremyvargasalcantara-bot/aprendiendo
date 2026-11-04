@@ -72,11 +72,9 @@ for (const p of procedimientos) {
 }
 console.log(subtotalLista);
 
-
-let itbisLista = 0; 
-for (const p of procedimientos) {
-    subtotalLista += p.precio * p.cantidad;     
-    itbisLista += itbisDeProcedimiento(p.precio * p.cantidad, p.esGravado);
+let itbisLista = 0;
+for (const p of procedimientos) {  
+  itbisLista += itbisDeProcedimiento(p.precio * p.cantidad, p.gravado);
 }
 const totalLista = subtotalLista + itbisLista;
 console.log(subtotalLista);
