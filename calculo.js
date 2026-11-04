@@ -71,3 +71,14 @@ for (const p of procedimientos) {
   subtotalLista += p.precio * p.cantidad;
 }
 console.log(subtotalLista);
+
+
+let itbisLista = 0; 
+for (const p of procedimientos) {
+    subtotalLista += p.precio * p.cantidad;     
+    itbisLista += itbisDeProcedimiento(p.precio * p.cantidad, p.esGravado);
+}
+const totalLista = subtotalLista + itbisLista;
+console.log(subtotalLista);
+console.log(itbisLista);
+console.log(totalLista);
