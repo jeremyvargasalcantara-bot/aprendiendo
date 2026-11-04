@@ -64,3 +64,10 @@ console.log(procedimientos.length);
 console.log(procedimientos[1].nombre);
 console.log(procedimientos[0].precio);
 console.log(procedimientos[3]);
+console.log(procedimientos[procedimientos.length - 1].nombre);
+
+let subtotalLista = 0;
+for (const p of procedimientos) {
+  subtotalLista += p.precio * p.cantidad;
+}
+console.log(subtotalLista);
