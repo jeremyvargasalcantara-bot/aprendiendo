@@ -82,3 +82,12 @@ function actualizarPresupuesto() {
   document.getElementById("total").textContent = formatearDinero(totalLista);
 }
 actualizarPresupuesto ();
+
+document.getElementById("agregar").addEventListener("click", function () {
+    procedimientos.push({
+    nombre: "Profilaxis",
+    precio: 1500,
+    cantidad: 1,
+    gravado: false,
+});
+actualizarPresupuesto ();
