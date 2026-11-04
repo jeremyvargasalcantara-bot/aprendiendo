@@ -39,7 +39,9 @@ console.log(
     blanqueamientoDental.gravado,
   ),
 );
-
+function formatearDinero(monto) {
+    return "RD$ " + monto.toLocaleString("es-DO", { minimumFractionDigits: 2 });
+  }
 const procedimientos = [
   {
     nombre: "Profilaxis",
@@ -74,12 +76,9 @@ function actualizarPresupuesto() {
   for (const p of procedimientos) {
     itbisLista += itbisDeProcedimiento(p.precio * p.cantidad, p.gravado);
   }
-  const totalLista = subtotalLista + itbisLista;
-  function formatearDinero(monto) {
-    return "RD$ " + monto.toLocaleString("es-DO", { minimumFractionDigits: 2 });
-  }
+  const totalLista = subtotalLista + itbisLista;  
   document.getElementById("subtotal").textContent = formatearDinero(subtotalLista);
   document.getElementById("itbis").textContent = formatearDinero(itbisLista);
   document.getElementById("total").textContent = formatearDinero(totalLista);
 }
-console.log(actualizarPresupuesto());
+actualizarPresupuesto ();
