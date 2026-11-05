@@ -85,13 +85,13 @@ actualizarPresupuesto();
 
 document.getElementById("agregar").addEventListener("click", function () {
 const precioEscrito = Number(document.getElementById("precio").value);
-const nombreEscrito = Number(document.getElementById("nombre").value);
-const esGravado = Number(document.getElementById("precio").cheked);
+const nombreEscrito = textContent(document.getElementById("nombre").textContent);
+const esGravado = checked (document.getElementById("gravado").checked);
   procedimientos.push({
-    nombre: "nombreEscrito",
+    nombre: nombreEscrito,
     precio: precioEscrito,
     cantidad: 1,
-    gravado: "Profilaxis",
+    gravado: Profilaxis,
   });
   actualizarPresupuesto();
 });
