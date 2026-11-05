@@ -40,8 +40,8 @@ console.log(
   ),
 );
 function formatearDinero(monto) {
-    return "RD$ " + monto.toLocaleString("es-DO", { minimumFractionDigits: 2 });
-  }
+  return "RD$ " + monto.toLocaleString("es-DO", { minimumFractionDigits: 2 });
+}
 const procedimientos = [
   {
     nombre: "Profilaxis",
@@ -76,19 +76,20 @@ function actualizarPresupuesto() {
   for (const p of procedimientos) {
     itbisLista += itbisDeProcedimiento(p.precio * p.cantidad, p.gravado);
   }
-  const totalLista = subtotalLista + itbisLista;  
+  const totalLista = subtotalLista + itbisLista;
   document.getElementById("subtotal").textContent = formatearDinero(subtotalLista);
   document.getElementById("itbis").textContent = formatearDinero(itbisLista);
   document.getElementById("total").textContent = formatearDinero(totalLista);
 }
-actualizarPresupuesto ();
+actualizarPresupuesto();
 
 document.getElementById("agregar").addEventListener("click", function () {
-    procedimientos.push({
+const precioEscrito = Number(document.getElementById("precio").value);
+  procedimientos.push({
     nombre: "Profilaxis",
-    precio: 1500,
+    precio: precioEscrito,
     cantidad: 1,
     gravado: false,
-});
-actualizarPresupuesto ();
+  });
+  actualizarPresupuesto();
 });
