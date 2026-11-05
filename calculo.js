@@ -84,14 +84,16 @@ function actualizarPresupuesto() {
 actualizarPresupuesto();
 
 document.getElementById("agregar").addEventListener("click", function () {
-const precioEscrito = Number(document.getElementById("precio").value);
-const nombreEscrito = textContent(document.getElementById("nombre").textContent);
-const esGravado = checked (document.getElementById("gravado").checked);
+  const precioEscrito = Number(document.getElementById("precio").value);
+  const nombreEscrito = document.getElementById("nombre").value; 
+  const esGravado = document.getElementById("gravado").checked;
+
   procedimientos.push({
     nombre: nombreEscrito,
     precio: precioEscrito,
     cantidad: 1,
-    gravado: Profilaxis,
+    gravado: esGravado
   });
+
   actualizarPresupuesto();
 });
