@@ -85,11 +85,13 @@ actualizarPresupuesto();
 
 document.getElementById("agregar").addEventListener("click", function () {
 const precioEscrito = Number(document.getElementById("precio").value);
+const nombreEscrito = Number(document.getElementById("nombre").value);
+const esGravado = Number(document.getElementById("precio").cheked);
   procedimientos.push({
-    nombre: "Profilaxis",
+    nombre: "nombreEscrito",
     precio: precioEscrito,
     cantidad: 1,
-    gravado: false,
+    gravado: "Profilaxis",
   });
   actualizarPresupuesto();
 });
