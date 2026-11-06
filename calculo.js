@@ -68,6 +68,8 @@ console.log(procedimientos[0].precio);
 console.log(procedimientos[3]);
 console.log(procedimientos[procedimientos.length - 1].nombre);
 function actualizarPresupuesto() {
+  const lista = document.getElementById("lista");
+  lista.innerHTML = "";
   let subtotalLista = 0;
   for (const p of procedimientos) {
     subtotalLista += p.precio * p.cantidad;
@@ -75,27 +77,31 @@ function actualizarPresupuesto() {
   let itbisLista = 0;
   for (const p of procedimientos) {
     itbisLista += itbisDeProcedimiento(p.precio * p.cantidad, p.gravado);
-  }
-  const totalLista = subtotalLista + itbisLista;
-  document.getElementById("subtotal").textContent = formatearDinero(subtotalLista);
+  } 
+  const totalLista = subtotalLista + itbisLista;  
+  document.getElementById("subtotal").textContent =
+    formatearDinero(subtotalLista);
   document.getElementById("itbis").textContent = formatearDinero(itbisLista);
   document.getElementById("total").textContent = formatearDinero(totalLista);
 }
 actualizarPresupuesto();
-
-document.getElementById("agregar").addEventListener("click", function () {
+document.getElementById("agregar").addEventListener("click", function () { 
   const precioEscrito = Number(document.getElementById("precio").value);
-  const nombreEscrito = document.getElementById("nombre").value; 
+  const nombreEscrito = document.getElementById("nombre").value;
   const esGravado = document.getElementById("gravado").checked;
+  const li = document.createElement("li");
+  li.textContent = p.nombre + " — " + formatearDinero(p.precio * p.cantidad);
+  lista.append(li); 
+
   if (nombreEscrito === "" || precioEscrito <= 0) {
-  alert("Escribe el nombre y un precio mayor que 0");
-  return;
-}
+    alert("Escribe el nombre y un precio mayor que 0");
+    return;
+  }
   procedimientos.push({
     nombre: nombreEscrito,
     precio: precioEscrito,
     cantidad: 1,
-    gravado: esGravado
+    gravado: esGravado,
   });
 
   actualizarPresupuesto();
