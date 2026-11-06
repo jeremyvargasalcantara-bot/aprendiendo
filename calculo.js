@@ -73,6 +73,10 @@ function actualizarPresupuesto() {
   let subtotalLista = 0;
   for (const p of procedimientos) {
     subtotalLista += p.precio * p.cantidad;
+      const item = document.createElement("li");
+  item.textContent = p.nombre + " — " + formatearDinero(p.precio * p.cantidad);
+  lista.append(item);
+
   }
   let itbisLista = 0;
   for (const p of procedimientos) {
