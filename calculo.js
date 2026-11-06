@@ -87,7 +87,10 @@ document.getElementById("agregar").addEventListener("click", function () {
   const precioEscrito = Number(document.getElementById("precio").value);
   const nombreEscrito = document.getElementById("nombre").value; 
   const esGravado = document.getElementById("gravado").checked;
-
+  if (nombreEscrito === "" || precioEscrito <= 0) {
+  alert("Escribe el nombre y un precio mayor que 0");
+  return;
+}
   procedimientos.push({
     nombre: nombreEscrito,
     precio: precioEscrito,
