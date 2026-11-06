@@ -93,10 +93,6 @@ document.getElementById("agregar").addEventListener("click", function () {
   const precioEscrito = Number(document.getElementById("precio").value);
   const nombreEscrito = document.getElementById("nombre").value;
   const esGravado = document.getElementById("gravado").checked;
-  const li = document.createElement("li");
-  li.textContent = p.nombre + " — " + formatearDinero(p.precio * p.cantidad);
-  lista.append(li); 
-
   if (nombreEscrito === "" || precioEscrito <= 0) {
     alert("Escribe el nombre y un precio mayor que 0");
     return;
