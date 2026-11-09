@@ -76,6 +76,13 @@ function actualizarPresupuesto() {
     subtotalLista += p.precio * p.cantidad;
       const item = document.createElement("li");
   item.textContent = (i + 1) + ". " + p.nombre + " - " + formatearDinero(p.precio * p.cantidad);
+  const boton = document.createElement("button");
+  boton.textContent = "Eliminar";
+  boton.addEventListener("click", function () {
+    procedimientos.splice(i, 1);
+    actualizarPresupuesto();
+  });
+  item.append(boton);
   lista.append(item);
 
   }
