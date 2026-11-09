@@ -39,7 +39,8 @@ console.log(
     blanqueamientoDental.gravado,
   ),
 );
-const formatearDinero = (monto) => "RD$ " + monto.toLocaleString("es-DO", { minimumFractionDigits: 2 });
+const formatearDinero = (monto) =>
+  "RD$ " + monto.toLocaleString("es-DO", { minimumFractionDigits: 2 });
 const procedimientos = [
   {
     nombre: "Profilaxis",
@@ -111,3 +112,9 @@ document.getElementById("agregar").addEventListener("click", function () {
   });
   actualizarPresupuesto();
 });
+const sumar = (a, b) => a + b;
+console.log(sumar(1500, 5000));
+console.log(sumar("1500", 5000));
+const esCaro = (precio) => precio > 10000;
+console.log(esCaro(12000));
+console.log(esCaro(1500));
