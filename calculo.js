@@ -109,6 +109,5 @@ document.getElementById("agregar").addEventListener("click", function () {
     cantidad: 1,
     gravado: esGravado,
   });
-
   actualizarPresupuesto();
 });
