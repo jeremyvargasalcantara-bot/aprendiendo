@@ -39,9 +39,7 @@ console.log(
     blanqueamientoDental.gravado,
   ),
 );
-function formatearDinero(monto) {
-  return "RD$ " + monto.toLocaleString("es-DO", { minimumFractionDigits: 2 });
-}
+const formatearDinero = (monto) => "RD$ " + monto.toLocaleString("es-DO", { minimumFractionDigits: 2 });
 const procedimientos = [
   {
     nombre: "Profilaxis",
@@ -72,32 +70,32 @@ function actualizarPresupuesto() {
   lista.innerHTML = "";
   let subtotalLista = 0;
   for (let i = 0; i < procedimientos.length; i++) {
-  const p = procedimientos[i];
+    const p = procedimientos[i];
     subtotalLista += p.precio * p.cantidad;
-      const item = document.createElement("li");
-  item.textContent = (i + 1) + ". " + p.nombre + " - " + formatearDinero(p.precio * p.cantidad);
-  const boton = document.createElement("button");
-  boton.textContent = "Eliminar";
-  boton.addEventListener("click", function () {
-    procedimientos.splice(i, 1);
-    actualizarPresupuesto();
-  });
-  item.append(boton);
-  lista.append(item);
-
+    const item = document.createElement("li");
+    item.textContent =
+      i + 1 + ". " + p.nombre + " - " + formatearDinero(p.precio * p.cantidad);
+    const boton = document.createElement("button");
+    boton.textContent = "Eliminar";
+    boton.addEventListener("click", function () {
+      procedimientos.splice(i, 1);
+      actualizarPresupuesto();
+    });
+    item.append(boton);
+    lista.append(item);
   }
   let itbisLista = 0;
   for (const p of procedimientos) {
     itbisLista += itbisDeProcedimiento(p.precio * p.cantidad, p.gravado);
-  } 
-  const totalLista = subtotalLista + itbisLista;  
+  }
+  const totalLista = subtotalLista + itbisLista;
   document.getElementById("subtotal").textContent =
     formatearDinero(subtotalLista);
   document.getElementById("itbis").textContent = formatearDinero(itbisLista);
   document.getElementById("total").textContent = formatearDinero(totalLista);
 }
 actualizarPresupuesto();
-document.getElementById("agregar").addEventListener("click", function () { 
+document.getElementById("agregar").addEventListener("click", function () {
   const precioEscrito = Number(document.getElementById("precio").value);
   const nombreEscrito = document.getElementById("nombre").value;
   const esGravado = document.getElementById("gravado").checked;
