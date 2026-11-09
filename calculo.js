@@ -71,10 +71,11 @@ function actualizarPresupuesto() {
   const lista = document.getElementById("lista");
   lista.innerHTML = "";
   let subtotalLista = 0;
-  for (const p of procedimientos) {
+  for (let i = 0; i < procedimientos.length; i++) {
+  const p = procedimientos[i];
     subtotalLista += p.precio * p.cantidad;
       const item = document.createElement("li");
-  item.textContent = p.nombre + " — " + formatearDinero(p.precio * p.cantidad);
+  item.textContent = (i + 1) + ". " + p.nombre + " - " + formatearDinero(p.precio * p.cantidad);
   lista.append(item);
 
   }
